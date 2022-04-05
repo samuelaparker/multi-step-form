@@ -1,7 +1,5 @@
-import React from 'react'
-import { Interface } from 'readline'
 
-interface Name {
+type Name = {
     first: string,
 }
 
