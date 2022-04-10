@@ -2,20 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import {google} from "googleapis"
 
-type Data = {
-    formData: string
-  }
-  
-//   export default function handler(
-    
-//     req: NextApiRequest,
-//     res: NextApiResponse<Data>
-//   ) {
-//     res.status(200).json({ formData: 'It works!' })
-//   }
-
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-    
     if (req.method === 'POST') {
       const { Name, Feedback } = req.body;
       console.log('sheet body data', Name, Feedback);
