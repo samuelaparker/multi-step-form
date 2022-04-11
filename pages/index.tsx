@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import {questions} from '../helpers/questions'
 
 const Home = () => {
 
@@ -22,6 +23,7 @@ const name = 'Samuel'
           WEBVIS
         </h1>
         <h2 className={styles.title}><Link href="/formPage"><a>Get started <span>here</span></a></Link></h2>
+        
        
       </main> 
 
