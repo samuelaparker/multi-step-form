@@ -8,9 +8,6 @@ import { useState } from "react";
 export default function Forms() {
     const [formStep, setFormStep] = useState(0);
 
-    const [formData, setFormData] = useState(null)
-
-
 
     const completeFormStep = () => {
         setFormStep(formStep + 1);
@@ -30,7 +27,7 @@ export default function Forms() {
             return (
                 <button disabled={!isValid} onClick={completeFormStep}>Next</button>
             )
-        }
+        } 
     }
 
     function submitHandler(data: any) {
@@ -59,12 +56,12 @@ export default function Forms() {
     return (
 
         <>
-            <div className={styles.container}>
+
                 <main className={styles.main}>
 
                     <form onSubmit={handleSubmit(submitHandler)}>
                         {formStep === 0 && (
-                            <section>
+                            <section className={styles.section}>
                                 <h1>{questions[0].question}</h1>
                                 <label htmlFor={questions[0].question}>{questions[0].choices[0].value}*</label>
                                 <input
@@ -125,12 +122,12 @@ export default function Forms() {
                             <section>
                                 <h1>{questions[2].question}</h1>
                                 <label htmlFor={questions[2].question}>{questions[2].choices[0].value}*</label>
-                                <input
-                                    type={questions[2].inputType}
+                                <textarea
+                                    // type={questions[2].inputType}
                                     id={questions[2].question}
                                     placeholder={questions[2].placeholder}
-                                    {...register(questions[2].choices[0].value, { required: true })}
-                                />
+                                    {...register(questions[2].question, { required: true })}>
+                                </textarea>
                                 {renderButton()}
                             </section>
                         )}
@@ -228,7 +225,7 @@ export default function Forms() {
                                 <input
                                     type={questions[5].inputType}
                                     placeholder={questions[5].placeholder}
-                                    {...register(questions[5].choices[2].value, { required: true })}
+                                    {...register(questions[5].choices[2].value, {required: true, pattern: /^\S+@\S+$/i})}
                                 />
 
                                 {renderButton()}
@@ -238,8 +235,7 @@ export default function Forms() {
 
                     </form>
                 </main>
-            </div>
-
+    
         </>
     )
 }
