@@ -2,6 +2,7 @@ export let questions = [
   {
     inputType: "text",
     question: "What is the name of the company and your position?",
+    placeholder: "",
     choices: [
       {
         value: "Company name",
@@ -14,6 +15,7 @@ export let questions = [
   {
     inputType: "checkbox",
     question: "What kind of website do you need?",
+    placeholder: "",
     choices: [
       {
         value: "Personal Website",
@@ -32,15 +34,17 @@ export let questions = [
   {
     inputType: "text",
     question: "What is the main objective for this website?",
+    placeholder: "",
     choices: [
       {
-        value: "",
+        value: " ",
       },
     ],
   },
   {
     inputType: "radio",
     question: "Do you already have a design?",
+    placeholder: " ",
     choices: [
       {
         value: "Yes",
@@ -51,8 +55,9 @@ export let questions = [
     ],
   },
   {
-    inputType: "checkbox",
-    question: "What is your project's budget?",
+    inputType: "radio",
+    question: "What is your project\'s budget?",
+    placeholder: "",
     choices: [
       {
         value: "$2,000 - $4,000",
@@ -71,6 +76,7 @@ export let questions = [
   {
     inputType: "text",
     question: "How can we contact you?",
+    placeholder: " ",
     choices: [
       {
         value: "First Name",
