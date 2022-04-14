@@ -5,10 +5,8 @@ import {google} from "googleapis"
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
       console.log(req.body)
-      const header = Object.keys(req.body);
-      const values = Object.values(req.body);
-      // console.log('sheet body data', header, values);
-  
+      const formQuestion = Object.keys(req.body);
+      const formAnswer = Object.values(req.body);
       const auth = new google.auth.GoogleAuth({
         credentials: {
           client_email: process.env.CLIENT_EMAIL,
@@ -33,7 +31,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         range: 'Sheet1!A2:Z',
         valueInputOption: 'USER_ENTERED',
         requestBody: {
-          values: [[...header],[...values]],
+          values: [[...formQuestion],[...formAnswer]],
         },
       });
       
