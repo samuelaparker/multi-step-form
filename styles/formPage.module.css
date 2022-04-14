@@ -22,11 +22,18 @@
 .section {
   display: flex;
   flex-direction: column;
-  align-items: left;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: left;
   width: 100%;
   max-width: 1000px;
   padding: 2rem;
 
 }
 
+.radioInputWrapper {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  
+  
+}

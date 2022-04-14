@@ -28,18 +28,21 @@ a {
   width: 1px;
 }
 
-input {
+input, textarea {
   width: 100%;
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 1rem;
+  align-self: left;
   box-shadow:
       1px 2px 2px #e8e8e8,
       2px 4px 4px #e8e8e8,
       3px 6px 6px #e8e8e8
   ;
 }
+
+
 
 button {
   background-color: #5e748f;
@@ -48,6 +51,7 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 0.5rem;
   box-shadow:
       1px 2px 2px #e8e8e8,
       2px 4px 4px #e8e8e8,
@@ -56,5 +60,5 @@ button {
 }
 
 label {
-  padding-bottom: 0.5rem;
+  padding: 0.5rem  0.5rem;
 }

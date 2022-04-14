@@ -4,8 +4,10 @@ import {google} from "googleapis"
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
-      const { Name, Feedback } = req.body;
-      console.log('sheet body data', Name, Feedback);
+      console.log(req.body)
+      const header = Object.keys(req.body);
+      const values = Object.values(req.body);
+      // console.log('sheet body data', header, values);
   
       const auth = new google.auth.GoogleAuth({
         credentials: {
@@ -27,12 +29,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       });
   
       const response = await sheets.spreadsheets.values.append({
-          
         spreadsheetId: process.env.SPREADSHEET_ID,
-        range: 'Sheet1!A2:C',
+        range: 'Sheet1!A2:Z',
         valueInputOption: 'USER_ENTERED',
         requestBody: {
-          values: [[Name, Feedback]],
+          values: [[...header],[...values]],
         },
       });
       
