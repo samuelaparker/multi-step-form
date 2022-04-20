@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function Forms() {
     const [formStep, setFormStep] = useState(0);
-    
+
     const completeFormStep = () => {
         setFormStep(formStep + 1);
     }
@@ -30,7 +30,7 @@ export default function Forms() {
             )
         }
     }
-    
+
 
     const {
         register,
@@ -46,7 +46,7 @@ export default function Forms() {
     function onSubmit(data: any) {
 
         console.log('handler fired', data, 'event', event)
-        
+
         completeFormStep()
         fetch('/api/sheet', {
             method: 'POST',
@@ -99,40 +99,62 @@ export default function Forms() {
                     {formStep === 1 && (
                         <section className={styles.section}>
                             <h1>{questions[1].question}</h1>
-
-                            <label htmlFor={questions[1].question}>{questions[1].choices[0].value}</label>
                             <input
-                                style={{ boxShadow: 'none', width: '5%' }}
+                                className={styles.inputHidden}
                                 type={questions[1].inputType}
-                                id={questions[1].question}
+                                id={questions[1].choices[0].value}
                                 placeholder={questions[1].placeholder}
                                 {...register(questions[1].choices[0].value, { required: '' })}
                             />
+                            <label
+                                htmlFor={questions[1].choices[0].value}
+                                className={styles.multipleInputLabel}
+                            >
+                                {questions[1].choices[0].value}
+                            </label>
 
-                            <label htmlFor={questions[1].question}>{questions[1].choices[1].value}</label>
                             <input
-                                style={{ boxShadow: 'none', width: '5%' }}
+                                className={styles.inputHidden}
+
+                                id={questions[1].choices[1].value}
                                 type={questions[1].inputType}
                                 placeholder={questions[1].placeholder}
                                 {...register(questions[1].choices[1].value, { required: '' })}
                             />
 
-                            <label htmlFor={questions[1].question}>{questions[1].choices[2].value}</label>
+                            <label
+                                className={styles.multipleInputLabel}
+                                htmlFor={questions[1].choices[1].value}
+                            >
+                                {questions[1].choices[1].value}</label>
+
+
                             <input
-                                style={{ boxShadow: 'none', width: '5%' }}
+                                className={styles.inputHidden}
+                                id={questions[1].choices[2].value}
                                 type={questions[1].inputType}
                                 placeholder={questions[1].placeholder}
                                 {...register(questions[1].choices[2].value, { required: '' })}
                             />
+                            <label
+                                className={styles.multipleInputLabel}
+                                htmlFor={questions[1].choices[2].value}
+                            >
+                                {questions[1].choices[2].value}</label>
 
-                            <label htmlFor={questions[1].question}>{questions[1].choices[3].value}</label>
+
                             <input
-                                style={{ boxShadow: 'none', width: '5%' }}
+                                className={styles.inputHidden}
+                                id={questions[1].choices[3].value}
                                 type={questions[1].inputType}
                                 placeholder={questions[1].placeholder}
                                 {...register(questions[1].choices[3].value, { required: '' })}
                             />
-                            
+                            <label
+                                className={styles.multipleInputLabel}
+                                htmlFor={questions[1].choices[3].value}
+                            >
+                                {questions[1].choices[3].value}</label>
                             {renderNextButton()}
                         </section>
                     )}
@@ -154,30 +176,37 @@ export default function Forms() {
                     {formStep === 3 && (
                         <section className={styles.section}>
                             <h1>{questions[3].question}</h1>
-                            <div className={styles.radioInputWrapper}>
-                                <label className={styles.label} htmlFor={questions[3].question}>{questions[3].choices[0].value}</label>
+                            
                                 <input
-                                    style={{ boxShadow: 'none', width: '5%' }}
+                                    className={styles.inputHidden}
                                     type={questions[3].inputType}
                                     id={questions[3].choices[0].value}
                                     placeholder={questions[3].placeholder}
                                     value={questions[3].choices[0].value}
                                     {...register(questions[3].question, { required: '' })}
-
                                 />
-                            </div>
-                            <div className={styles.radioInputWrapper}>
-                                <label htmlFor={questions[3].question}>{questions[3].choices[1].value}</label>
+                                <label
+                                    className={styles.multipleInputLabel}
+                                    htmlFor={questions[3].choices[0].value}
+                                >
+                                    {questions[3].choices[0].value}</label>
+
+
                                 <input
-                                    style={{ boxShadow: 'none', width: '5%' }}
+                                    className={styles.inputHidden}
                                     type={questions[3].inputType}
                                     id={questions[3].choices[1].value}
                                     placeholder={questions[3].placeholder}
                                     value={questions[3].choices[1].value}
                                     {...register(questions[3].question, { required: '' })}
                                 />
-                            </div>
+                                <label
+                                    className={styles.multipleInputLabel}
+                                    htmlFor={questions[3].choices[1].value}
+                                >
+                                    {questions[3].choices[1].value}</label>
                             
+
                             {renderNextButton()}
 
                         </section>
@@ -186,50 +215,71 @@ export default function Forms() {
                     {formStep === 4 && (
                         <section className={styles.section}>
                             <h1>What is your project&apos;s budget?</h1>
-                            <label htmlFor="What is your project&apos;s budget?">{questions[4].choices[0].value}</label>
-                            <input
-                                style={{ boxShadow: 'none', width: '5%' }}
-                                type={questions[4].inputType}
-                                id={questions[4].choices[0].value}
-                                placeholder={questions[4].placeholder}
-                                value={questions[4].choices[0].value}
-                                {...register("What is your project&apos;s budget?", { required: '' })}
-
-                            />
-
-                            <label htmlFor="What is your project&apos;s budget?">{questions[4].choices[1].value}</label>
-                            <input
-                                style={{ boxShadow: 'none', width: '5%' }}
-                                type={questions[4].inputType}
-                                id={questions[4].choices[1].value}
-                                placeholder={questions[4].placeholder}
-                                value={questions[4].choices[1].value}
-                                {...register("What is your project&apos;s budget?", { required: '' })}
-
-                            />
-
-                            <label htmlFor="What is your project&apos;s budget?">{questions[4].choices[2].value}</label>
-                            <input
-                                style={{ boxShadow: 'none', width: '5%' }}
-                                type={questions[4].inputType}
-                                id={questions[4].choices[2].value}
-                                placeholder={questions[4].placeholder}
-                                value={questions[4].choices[2].value}
-                                {...register("What is your project&apos;s budget?", { required: '' })}
-
-                            />
-
-                            <label htmlFor="What is your project&apos;s budget?">{questions[4].choices[3].value}</label>
-                            <input
-                                style={{ boxShadow: 'none', width: '5%' }}
-                                type={questions[4].inputType}
-                                id={questions[4].choices[3].value}
-                                placeholder={questions[4].placeholder}
-                                value={questions[4].choices[3].value}
-                                {...register("What is your project&apos;s budget?", { required: '' })}
-
-                            />
                             
+                                <input
+                                    className={styles.inputHidden}
+                                    type={questions[4].inputType}
+                                    id={questions[4].choices[0].value}
+                                    placeholder={questions[4].placeholder}
+                                    value={questions[4].choices[0].value}
+                                    {...register("What is your project&apos;s budget?", { required: '' })}
+
+                                />
+                                <label
+                                    className={styles.multipleInputLabel}
+                                    htmlFor={questions[4].choices[0].value}
+                                >
+                                    {questions[4].choices[0].value}</label>
+
+
+                                <input
+                                    className={styles.inputHidden}
+                                    type={questions[4].inputType}
+                                    id={questions[4].choices[1].value}
+                                    placeholder={questions[4].placeholder}
+                                    value={questions[4].choices[1].value}
+                                    {...register("What is your project&apos;s budget?", { required: '' })}
+
+                                />
+                                <label
+                                    className={styles.multipleInputLabel}
+                                    htmlFor={questions[4].choices[1].value}
+                                >
+                                    {questions[4].choices[1].value}</label>
+
+
+                                <input
+                                    className={styles.inputHidden}
+                                    type={questions[4].inputType}
+                                    id={questions[4].choices[2].value}
+                                    placeholder={questions[4].placeholder}
+                                    value={questions[4].choices[2].value}
+                                    {...register("What is your project&apos;s budget?", { required: '' })}
+
+                                />
+                                <label
+                                    className={styles.multipleInputLabel}
+                                    htmlFor={questions[4].choices[2].value}
+                                >
+                                    {questions[4].choices[2].value}</label>
+
+
+                                <input
+                                    className={styles.inputHidden}
+                                    type={questions[4].inputType}
+                                    id={questions[4].choices[3].value}
+                                    placeholder={questions[4].placeholder}
+                                    value={questions[4].choices[3].value}
+                                    {...register("What is your project&apos;s budget?", { required: '' })}
+
+                                />
+                                <label
+                                    className={styles.multipleInputLabel}
+                                    htmlFor={questions[4].choices[3].value}
+                                >
+                                    {questions[4].choices[3].value}</label>
+                            
+
                             {renderNextButton()}
                         </section>
                     )}
@@ -259,7 +309,7 @@ export default function Forms() {
                                 {...register(questions[5].choices[2].value, { required: true, pattern: /^\S+@\S+$/i })}
                             />
                             {renderNextButton()}
-                            
+
                         </section>
 
                     )}
