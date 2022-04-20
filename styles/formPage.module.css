@@ -30,10 +30,23 @@
 
 }
 
-.radioInputWrapper {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
+.inputHidden {
+  display: none;
+}
+
+.multipleInputLabel {
+  padding: 1rem 2rem;
+  border: solid 2px #ccc;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  margin-top: 15px;
   
   
+}
+
+
+.inputHidden:checked + .multipleInputLabel {
+  border: solid 2px #5e748f;
+  background-color: #5F9A9C;
+  color: white;
 }
