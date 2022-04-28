@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# webvis
+This is a Typeform like client form that submits to a Google Sheet. It was created with the [Next.js](https://nextjs.org/) framework and is hosted with Vercel [HERE](https://webvis-samuelaparker.vercel.app/).
+
+
+
 
 ## Getting Started
 
@@ -18,6 +22,5 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-# webvis
-This is a Typeform like client form that submits to a Google Sheet. It was created with the [Next.js](https://nextjs.org/) framework and is hosted with Vercel [HERE](https://webvis-samuelaparker.vercel.app/).
+
 
