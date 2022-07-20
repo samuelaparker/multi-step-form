@@ -47,6 +47,6 @@
 
 .inputHidden:checked + .multipleInputLabel {
   border: solid 2px #5e748f;
-  background-color: #5F9A9C;
+  background-color: #5cb988;
   color: white;
 }

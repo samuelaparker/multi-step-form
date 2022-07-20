@@ -34,14 +34,15 @@
 }
 
 .title a {
-  color: #0070f3;
+  color: hsla(209, 85%, 67%, 1);
   text-decoration: none;
+  transition: color 0.5s ease;
 }
 
 .title a:hover,
 .title a:focus,
 .title a:active {
-  opacity: 70%;
+  color: hsla(209, 85%, 67%, 0.7);
 }
 
 .title {
