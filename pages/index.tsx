@@ -22,7 +22,7 @@ const name = 'Samuel'
         <h1 className={styles.title}>
           WEBVIS
         </h1>
-        <h2 className={styles.title}><Link href="/formPage"><a>Get started <span>here</span></a></Link></h2>
+        <h2 className={styles.title}><Link href="/formPage">Get started<span>here</span></Link></h2>
         
        
       </main> 
@@ -40,7 +40,7 @@ const name = 'Samuel'
         </a>
       </footer>
     </div>
-  )
+  );
 }
 
 export default Home
